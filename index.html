@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List Life Dashboard</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+
+      <!-- Greeting Widget -->
+      <section id="greeting" class="widget">
+        <h2 class="widget-title">Welcome</h2>
+        <div class="widget-content">
+          <p id="greeting-time" class="greeting-time"></p>
+          <p id="greeting-date" class="greeting-date"></p>
+          <p id="greeting-msg" class="greeting-msg"></p>
+        </div>
+      </section>
+
+      <!-- Focus Timer -->
+      <section id="focus-timer" class="widget">
+        <h2 class="widget-title">Focus Timer</h2>
+        <div class="widget-content">
+          <p id="timer-display" class="timer-display">25:00</p>
+          <div class="timer-controls">
+            <button id="timer-start" class="btn btn-primary">Start</button>
+            <button id="timer-stop" class="btn btn-secondary">Stop</button>
+            <button id="timer-reset" class="btn btn-secondary">Reset</button>
+          </div>
+          <div id="timer-notification" class="timer-notification" role="alert">
+            <p>Session complete! Great work.</p>
+            <button class="btn btn-primary timer-notification-dismiss">Dismiss</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- To-Do List -->
+      <section id="todo" class="widget">
+        <h2 class="widget-title">To-Do List</h2>
+        <div class="widget-content">
+          <div class="todo-form">
+            <input
+              id="todo-input"
+              class="input-field"
+              type="text"
+              placeholder="Add a new task…"
+              maxlength="200"
+              aria-label="New task title"
+            />
+            <button id="todo-add-btn" class="btn btn-primary">Add</button>
+          </div>
+          <span id="todo-input-error" class="error-msg" role="alert"></span>
+          <ul id="todo-list" class="todo-list" aria-label="Task list"></ul>
+        </div>
+      </section>
+
+      <!-- Quick Links -->
+      <section id="quick-links" class="widget">
+        <h2 class="widget-title">Quick Links</h2>
+        <div class="widget-content">
+          <div class="link-form">
+            <input
+              id="link-label-input"
+              class="input-field"
+              type="text"
+              placeholder="Label"
+              maxlength="64"
+              aria-label="Link label"
+            />
+            <span id="link-label-error" class="error-msg" role="alert"></span>
+            <input
+              id="link-url-input"
+              class="input-field"
+              type="url"
+              placeholder="https://example.com"
+              maxlength="2048"
+              aria-label="Link URL"
+            />
+            <span id="link-url-error" class="error-msg" role="alert"></span>
+            <button id="link-add-btn" class="btn btn-primary">Add Link</button>
+            <span id="link-limit-error" class="error-msg" role="alert"></span>
+          </div>
+          <div id="links-grid" class="links-grid" aria-label="Saved links"></div>
+        </div>
+      </section>
+
+    </div>
+    <script defer src="js/app.js"></script>
+  </body>
+</html>

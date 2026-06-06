@@ -1,0 +1,317 @@
+/* ============================================================
+   To Do List Life Dashboard — css/style.css
+   All styling lives here. No inline styles, no <style> tags.
+   ============================================================ */
+
+/* ----- Reset & Base ----- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #f0f2f5;
+  color: #1a1a2e;
+}
+
+/* ----- Dashboard Grid (≥ 1280 px) ----- */
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+  width: 100%;
+  height: 100vh;
+  min-height: 0;
+}
+
+/* ----- Widget ----- */
+
+.widget {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  min-height: 200px;
+  overflow: hidden;
+}
+
+.widget-title {
+  font-size: 20px; /* body is 16px → 4 px larger as required */
+  font-weight: 700;
+  padding: 14px 20px 10px;
+  border-bottom: 1px solid #e8e8ec;
+  color: #1a1a2e;
+  flex-shrink: 0;
+}
+
+.widget-content {
+  padding: 16px 20px;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* ----- Greeting Widget ----- */
+
+.greeting-time {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.greeting-date {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.greeting-msg {
+  font-size: 1.1rem;
+  color: #3a3a6e;
+  font-weight: 500;
+}
+
+/* ----- Focus Timer ----- */
+
+.timer-display {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin-bottom: 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Timer notification — hidden by default */
+#timer-notification {
+  display: none;
+  margin-top: 16px;
+  padding: 12px 16px;
+  background-color: #d4edda;
+  border: 1px solid #28a745;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* Shown when JS adds .visible */
+#timer-notification.visible {
+  display: block;
+}
+
+/* ----- To-Do List ----- */
+
+.todo-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.todo-list {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+  flex-wrap: wrap;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-title {
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Completed task — strikethrough */
+.todo-title.completed {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo-edit-input {
+  flex: 1;
+  padding: 4px 8px;
+  font-size: 0.95rem;
+  border: 1px solid #7c83fd;
+  border-radius: 4px;
+  outline: none;
+  background-color: #f8f8ff;
+  min-width: 0;
+}
+
+.todo-edit-input:focus {
+  border-color: #5c63f5;
+  box-shadow: 0 0 0 2px rgba(92, 99, 245, 0.2);
+}
+
+.todo-edit-error {
+  display: block;
+  width: 100%;
+  font-size: 0.8rem;
+  color: #c0392b;
+  margin-top: 2px;
+}
+
+/* ----- Quick Links ----- */
+
+.link-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.links-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quick-link-btn {
+  position: relative;
+  padding: 8px 14px;
+  background-color: #eef0ff;
+  color: #3a3a8e;
+  border: 1px solid #c5c8ff;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease;
+  word-break: break-all;
+}
+
+.quick-link-btn:hover {
+  background-color: #d8dbff;
+}
+
+.quick-link-delete {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 6px;
+  background-color: #e74c3c;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  vertical-align: middle;
+  line-height: 1.4;
+}
+
+.quick-link-delete:hover {
+  background-color: #c0392b;
+}
+
+/* ----- Shared Form Elements ----- */
+
+.input-field {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fafafa;
+  color: #1a1a2e;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  min-width: 0;
+}
+
+.input-field:focus {
+  border-color: #5c63f5;
+  background-color: #fff;
+  box-shadow: 0 0 0 2px rgba(92, 99, 245, 0.2);
+}
+
+/* ----- Buttons ----- */
+
+.btn {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-primary {
+  background-color: #5c63f5;
+  color: #fff;
+  border-color: #5c63f5;
+}
+
+.btn-primary:hover {
+  background-color: #444bcf;
+  border-color: #444bcf;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #5c63f5;
+  border-color: #5c63f5;
+}
+
+.btn-secondary:hover {
+  background-color: #eef0ff;
+}
+
+/* ----- Validation Error Messages ----- */
+
+.error-msg {
+  display: block;
+  font-size: 0.8rem;
+  color: #c0392b;
+  min-height: 1.2em;
+}
+
+/* ----- Responsive: single-column stack (< 1280 px) ----- */
+
+@media (max-width: 1279px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .widget {
+    min-width: 200px;
+    max-height: none;
+    overflow-y: auto;
+  }
+}
